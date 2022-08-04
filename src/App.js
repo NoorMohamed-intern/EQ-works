@@ -14,7 +14,8 @@ import {
 import Dropdown from "react-bootstrap/Dropdown";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
-
+import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { Icon } from "leaflet";
 const BASE_URL = "https://silky-billowy-innocent.glitch.me";
 
 function App() {
@@ -72,6 +73,26 @@ function App() {
           Rate limiting is implemented using a redis cache. You can only make 4
           requests per minute before the API returns HTTP status 429.
         </p>
+        <h1>locations</h1>
+
+        <MapContainer center={[43.6708, -79.3899]} zoom={10}>
+          <TileLayer
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          />
+          <Marker position={[43.6708, -79.3899]}>
+            <Popup>EQ works</Popup>
+          </Marker>
+          <Marker position={[43.6426, -79.3871]}>
+            <Popup>CN Towers</Popup>
+          </Marker>
+          <Marker position={[43.0896, -79.0849]}>
+            <Popup>Niagara Falls</Popup>
+          </Marker>
+          <Marker position={[49.2965, -123.0884]}>
+            <Popup>Vancouver Harbour</Popup>
+          </Marker>
+        </MapContainer>
 
         <h1>Hourly Stats Visualization</h1>
         {hourlyData !== null ? (
@@ -106,6 +127,7 @@ function App() {
                 </Dropdown.Menu>
               </Dropdown>
             </div>
+
             <div className="chart-container">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart
