@@ -15,7 +15,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Table from "react-bootstrap/Table";
 import Form from "react-bootstrap/Form";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
-import { Icon } from "leaflet";
+// import { Icon } from "leaflet";
 const BASE_URL = "https://silky-billowy-innocent.glitch.me";
 
 function App() {
